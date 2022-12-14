@@ -1,0 +1,25 @@
+{%  extends "AppLadyEstetic/padre.html"  %} 
+
+{%  load static  %}
+
+{%  block titulo  %} 
+<h1 class="mb-5">Buscar Paciente</h1>
+{%  endblock  %}
+
+{%  block contenido_que_cambio  %} 
+
+<form action="{% url 'Buscar' %}" method="GET">
+
+    <input type="text"  name="apellido" id="apellido">
+    <input type="submit" value="buscar">
+
+</form>
+{{ mensaje }}
+
+{% endblock %}
+
+
+
+
+
+    

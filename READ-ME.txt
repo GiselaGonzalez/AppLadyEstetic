@@ -1,0 +1,11 @@
+  => Nombre App  : LadyEstetic
+
+  =>   Link    : 127.0.0.1:8000/AppLadyEstetic/
+
+  =>   Sobre el Código: AppLadyEstetic, es una aplicación donde podras conocer todo sobre nosotros y a traves de los botones que estan ubicados en la cabecera de la página, podra registrar como pacientes utilizando el botón "Pacientes"
+
+  =>   También podras registrar cada profesional que forme parte del equipo utilizando los botones "Esteticista","Manicure","Cosmetologia".
+
+  =>   Link de Busqueda: http://127.0.0.1:8000/AppLadyEstetic/BuscarPaciente/ (Utilizando el metodo"GET")
+
+  =>   Link admin :  Nombre de Usuario (admin), Contraseña(admin) Desde aqui podras verificar que los datos se hayan cargado de manera correcta.

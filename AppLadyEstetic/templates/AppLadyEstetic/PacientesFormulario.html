@@ -1,0 +1,21 @@
+{%  extends "AppLadyEstetic/padre.html"  %} 
+
+{%  load static  %}
+
+{%  block titulo  %} 
+<h1 class="mb-5">Registrar Pacientes</h1>
+{%  endblock  %}
+
+{%  block contenido_que_cambio  %} 
+<h1>Formulario</h1>
+
+<form action="{% url 'PacientesFormulario' %}" method="POST"> {% csrf_token %}
+<table>
+
+    {{ form.as_table }}
+
+</table>
+
+<input type="submit" value="ENVIAR DATOS">
+
+{%  endblock  %}

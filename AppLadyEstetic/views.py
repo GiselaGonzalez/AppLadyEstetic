@@ -16,7 +16,7 @@ def Inicio(request):
 def Contacto(request):
     return render (request, "AppLadyEstetic/Contacto.html")
 
-def Esteticista(request):
+def CrearEsteticista(request):
     if request.method=="POST":
         form=EsteticistaForm(request.POST)
         if form.is_valid():
@@ -30,9 +30,9 @@ def Esteticista(request):
     else:
         formulario=EsteticistaForm()
 
-    return render(request,"AppLadyEstetic/Esteticista.html", {"form":formulario})
+    return render(request,"AppLadyEstetic/CrearEsteticista.html", {"form":formulario})
 
-def Cosmetologia(request):
+def CrearCosmetologia(request):
 
     if request.method=="POST":
         form=CosmetologiaForm(request.POST)
@@ -47,10 +47,10 @@ def Cosmetologia(request):
     else:
         formulario=CosmetologiaForm()
 
-    return render(request,"AppLadyEstetic/Cosmetologia.html", {"form":formulario})
+    return render(request,"AppLadyEstetic/CrearCosmetologia.html", {"form":formulario})
             
 
-def Manicure(request):
+def CrearManicure(request):
 
     if request.method=="POST":
         form=ManicureForm(request.POST)
@@ -65,7 +65,7 @@ def Manicure(request):
     else:
         formulario=ManicureForm()
 
-    return render(request,"AppLadyEstetic/Manicure.html", {"form":formulario})
+    return render(request,"AppLadyEstetic/CrearManicure.html", {"form":formulario})
             
 
 
@@ -101,15 +101,23 @@ def BuscarPaciente(request):
 def Buscar(request):
 
     if request.GET["apellido"]:
-        apellido=request.GET["apellido"]
+       apellido= request.GET['apellido']
+       paciente = Pacientes.objects.filter(apellido__icontains=apellido)
 
-        pacientes=Pacientes.objects.filter(apellido=apellido)
-        return render (request,"AppLadyEstetic/resultadosBusqueda.html",{"Pacientes":Pacientes})
-
+       return render(request, "AppLadyEstetic/resultadosBusqueda.html",{"pacientes":paciente, "apellido":apellido})
     else:
-        return render(request, "AppLadyEstetic/BuscarPaciente.html", {"mensaje":"Ingrese un apellido"})
 
-    return render
+      respuesta = "No enviaste datos"
+
+    return HttpResponse(respuesta)
+
+    #respuesta= f" Estoy buscando el Paciente: {request.GET ['apellido'] }"
+    
+
+    
+
+  
+
 
 
 

@@ -9,11 +9,12 @@
 {%  block contenido_que_cambio  %}
 
 <ul>
-   {% for pacientes in pacientes %}
-      <li>{{pacientes.nombre}}</li>
-      <li>{{pacientes.apellido}}</li>
-      <br>
-    {% endfor %}
+{% for pacientes in pacientes %}
+<li>{{paciente.nombre}}</li>
+<li>{{paciente.apellido}}</li>
+
+{% endfor %}
+
 </ul>
 
 {% endblock %}

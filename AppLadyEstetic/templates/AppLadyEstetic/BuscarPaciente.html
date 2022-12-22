@@ -6,17 +6,21 @@
 <h1 class="mb-5">Buscar Paciente</h1>
 {%  endblock  %}
 
-{%  block contenido_que_cambio  %} 
+{%  block contenido_que_cambio %} 
 
-<form action="{% url 'Buscar' %}" method="GET">
+<h1>Formulario de busqueda</h1>
 
-    <input  type="text"  name="apellido"  id="apellido">
+<form action="{% url 'resultadoBusqueda' %}" method="POST"> {% csrf_token %}
 
-    <input type="submit" value="buscar">
+   <p>Nombre: <input type="text" name="nombre"></p>
+   <p>Apellido: <input type="text" name="apellido"></p>
 
-</form>
+   <input type="submit" value="Buscar Paciente">
+
+   </form>
 
 {% endblock %}
+
 
 
 

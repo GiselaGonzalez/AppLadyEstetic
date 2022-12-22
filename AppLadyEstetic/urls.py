@@ -10,7 +10,8 @@ urlpatterns= [
     path("Pacientes/",Pacientes,name="Pacientes"),
     path("Reservar_Turno/",Reservar_Turno,name="Reservar_Turnos"),
     path("PacientesFormulario/",PacientesFormulario,name="PacientesFormulario"),
-     path("BuscarPaciente/",BuscarPaciente,name="BuscarPaciente"),
+    path("BuscarPaciente/",BuscarPaciente,name="BuscarPaciente"),
+    path("resultadosBusqueda/",resultadosBusqueda,name="resultadoBusqueda"),
     path("Buscar/",Buscar,name="Buscar"),
     
    

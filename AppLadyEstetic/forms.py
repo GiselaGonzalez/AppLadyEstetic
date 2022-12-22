@@ -20,6 +20,12 @@ class ManicureForm(forms.Form):
     apellido = forms.CharField(max_length=20) 
 
 
+class BuscarPacienteForm(forms.Form):
+    nombre = forms.CharField(max_length=20)
+    apellido = forms.CharField(max_length=20) 
+
+
+
 
 
     

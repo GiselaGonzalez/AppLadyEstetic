@@ -6,6 +6,7 @@ from AppLadyEstetic.forms import PacientesForm
 from AppLadyEstetic.forms import CosmetologiaForm
 from AppLadyEstetic.forms import EsteticistaForm
 from AppLadyEstetic.forms import ManicureForm
+from AppLadyEstetic.forms import BuscarPacienteForm
 
 
 # Create your views here.
@@ -99,22 +100,22 @@ def BuscarPaciente(request):
 
 
 def Buscar(request):
+ if request.method=="POST":
+        form=BuscarPacienteForm(request.POST)
+        if form.is_valid():
+            informacion=form.cleaned_data 
+            Nombre=informacion["nombre"]
+            Apellido=informacion["apellido"]
+            paciente = Pacientes (nombre=Nombre,apellido=Apellido)
+            paciente.save()
+            return render (request, "AppLadyEstetic/BuscarPaciente.html")
+ else:
+        formulario=BuscarPacienteForm()
 
-    if request.GET["apellido"]:
-       apellido= request.GET['apellido']
-       paciente = Pacientes.objects.filter(apellido__icontains=apellido)
+ return render (request,"AppLadyEstetic/resultadosBusqueda.html",{"form":formulario})
 
-       return render(request, "AppLadyEstetic/resultadosBusqueda.html",{"pacientes":paciente, "apellido":apellido})
-    else:
-
-      respuesta = "No enviaste datos"
-
-    return HttpResponse(respuesta)
-
-    #respuesta= f" Estoy buscando el Paciente: {request.GET ['apellido'] }"
-    
-
-    
+def resultadosBusqueda(request):
+    return render (request, "AppLadyEstetic/resultadosBusqueda.html")    
 
   
 
